@@ -1,0 +1,33 @@
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://localhost:8761/eureka/
+
+server:
+  port: 8762
+
+spring:
+  application:
+    name: service-client-a
+  datasource:
+      name: mydb
+      type: com.alibaba.druid.pool.DruidDataSource
+      url: jdbc:mysql://127.0.0.1:3306/springbootpjax?useSSL=false
+      username: root
+      password: 1q2w3e4r
+      driver-class-name: com.mysql.jdbc.Driver
+      minIdle: 1
+      maxActive: 2
+      initialSize: 1
+      timeBetweenEvictionRunsMillis: 3000
+      minEvictableIdleTimeMillis: 300000
+      validationQuery: SELECT 'ZTM' FROM DUAL
+      testWhileIdle: true
+      testOnBorrow: false
+      testOnReturn: false
+  zipkin:
+    baseUrl: http://localhost:9411
+
+mybatis:
+  mapperLocations: classpath:mapper/*.xml
+  typeAliasesPackage: cn.strongme
